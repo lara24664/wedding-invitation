@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wedding Invitation</title>
     <style>
+	 #aya { 
+    font-size: 1.8em; /* Increased font size */
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    color: #412649;
+}
         body {
             margin: 0;
             padding: 0;
@@ -16,38 +22,24 @@
             height: 100vh;
         }
         .card {
-    display: flex;
-    flex-direction: row-reverse; /* This moves the right section to be first */
-    width: 1000px;
-    background: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-    overflow: hidden;
-}
-
+            display: flex;
+            width: 1000px;
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            overflow: hidden;
+        }
         .left {
-    width: 50%;
-    text-align: center;
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start; /* Align content to the top */
-    background: url(https://i.imgur.com/8N9rFb0.png);
-    background-size: cover;
-    border-left: 3px solid #b395c8; /* Adjusted border */
-    overflow-y: auto; /* Enables scrolling */
-    max-height: 100vh; /* Prevents overflow */
-}
-
-.right {
-    width: 50%;
-}
-
-.right img {
-    width: 100%;
-    height: 100vh; /* Full height to fill the screen */
-    object-fit: cover;
-}
+            width: 50%;
+            text-align: center;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: url(https://i.imgur.com/8N9rFb0.png);
+            background-size: cover;
+            border-right: 3px solid #d6cbd3;
+        }
         .left h1 {
             font-size: 30px;
             margin: 0;
@@ -59,22 +51,29 @@
             margin: 5px 0;
         }
         .date-box {
-            background: #b395c8;
+            background: #d6cbd3;
             color: white;
             padding: 10px;
             margin: 15px 0;
             border-radius: 5px;
         }
         .location-link {
-            color: white;
+            color: #d6cbd3;
             text-decoration: none;
-            background: #7e57c2;
+            background: #d6cbd3;
             padding: 8px 12px;
             border-radius: 5px;
             display: inline-block;
             margin-top: 10px;
         }
-
+        .right {
+            width: 50%;
+        }
+        .right img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 		.flower {
     width: 80px; /* Adjust size as needed */
     display: block;
@@ -83,7 +82,7 @@
 }
        .countdown {
             font-size: 1em;
-            background: #a586a6;
+            background: #d6cbd3;
             color: white;
             padding: 10px;
             border-radius: 10px;
@@ -102,7 +101,7 @@
             display: flex;
             justify-content: space-around;
             align-items: center;
-            background: #a586a6;
+            background: #d6cbd3;
             padding: 10px;
             border-radius: 10px;
             margin: 10px 0;
@@ -114,7 +113,7 @@
             font-weight: bold;}
 .location-link {
            font-size: 1em;
-            background: #a586a6;
+            background: #d6cbd3;
             color: white;
             padding: 10px;
             border-radius: 10px;
@@ -184,102 +183,84 @@
             border-radius: 50%;
             font-size: 18px;
             line-height: 1;
-        }	
-@media (max-width: 768px) {
-            .card {
-                display: flex;
-                flex-direction: row-reverse;
-                width: 200vw;
-                height: 100vh;
-                overflow-x: auto;
-                scroll-snap-type: x mandatory;
-                -webkit-overflow-scrolling: touch;
-            }
-
-            .right, .left {
-                width: 100vw;
-                height: 100vh;
-                flex-shrink: 0;
-                scroll-snap-align: start;
-            }
-
-            .right img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
-
-            .left {
-                text-align: center;
-                padding: 20px;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-            }
-
-            .location-link {
-                font-size: 14px;
-                padding: 6px 10px;
-            }
-
-            .countdown {
-                font-size: 14px;
-                padding: 8px;
-            }
-
-            .form-container {
-                width: 90%;
-            }
         }		
+		
+		.right {
+    width: 50%;
+    overflow: hidden;
+    position: relative;
+}
+
+.right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 1.5s ease-in-out;
+    animation: shrinkImage 3s ease-in-out 3s forwards;
+}
+
+@keyframes shrinkImage {
+    0% {
+        width: 100%;
+        height: 100vh; /* Full-screen */
+    }
+    100% {
+        width: 100%;
+        height: 100%;
+    }
+}
+
     </style>
 </head>
 <body>
     <div class="card">
-	  <div class="right">
-            <img src="img/ali ghina.jpeg" alt="Wedding Couple">
-        </div>
         <div class="left">
 		 <img src="https://imgur.com/hwyD3it.png" alt="Flower Decoration" class="flower">
-            <p class="subtitle">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا<br> 
+            <p id="aya">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا<br> 
             لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً</p>
-            <h1>إلى حضرة السيد الدكتور يحيى طاهر</h1>
+            <h1>حضرة السّيد الدّكتور يحيى طاهر</h1>
             <p>تتشرف</p>
             <p>عائلة السيد الأستاذ سامي بركات &nbsp; و &nbsp; عائلة المرحوم الحاج حسن سعد</p>
             <p>بدعوتكم لحضور زفاف ولديهما</p>
-            <img src="https://i.imgur.com/FsvWZ9E.png" alt="Flower Decoration" class="alighinanames">
+            <img src="alighinanamesnew33.png" alt="Flower Decoration" class="alighinanames">
             <div class="date-box">
-                <p>Tuesday, June 10, 2025</p>
-                <p>At 8 PM</p>
-            </div>
-            <p class="details">Le venue</p>
+            <div>٨ مساءً</div>
+            <div>١٠<strong> , حزيران</strong> , ٢٠٢٥</div>
+            <div>الثّلاثاء</div>
+        </div>
+		<img src="sala.png" alt="Flower Decoration" class="alighinanames">
             <p class="location"><a class="location-link" 
            href="https://maps.app.goo.gl/JbtH78bb3L4jLQWE9" 
            target="_blank">
-           View Location on Google Maps
+          Google هنا ننتظركم بحب – شاهد الموقع على خرائط
         </a></p>
             <p id="countdown" class="countdown" ></p>
-            <p>نوماً هنيئاً لأطفالكم</p>
+            <p class="aya">نوماً هنيئاً لأطفالكم</p>
             <p>(2) عدد الأشخاص</p>
            
 <br><br>
-<label for="guestCount" style="font-size: 18px;">Number of Guests Attending:</label>
+<label for="guestCount" style="font-size: 18px;">:عدد الضيوف الذين سيشاركوننا فرحتنا</label>
  <div class="form-container">
-                <label for="guestName">Please enter your name:</label>
-                <input type="text" id="guestName" placeholder="Your Name" required>
+                <label for="guestName">:يرجى إدخال اسمك</label>
+                <input type="text" id="guestName" placeholder="اسمك" required>
                 <div class="counter-container">
                     <button type="button" id="decrement">-</button>
                     <input type="number" id="guestCount" min="1" max="3" value="1" readonly>
                     <button type="button" id="increment">+</button>
                 </div>
                 <div class="button-container">
-                    <button id="yesButton">I will attend</button>
-                    <button id="noButton">I can't attend</button>
+					<button id="noButton">عذراً،لا أستطيع الحضور</button>
+                    <button id="yesButton">!سأحضر للاحتفال معكم</button>
                 </div>
             </div>
 </div>
 
-      
+        <div class="right">
+            <img src="https://i.imgur.com/D7h4RPu.jpeg" alt="Wedding Couple">
+        </div>
     </div>
 
     <script>
@@ -288,7 +269,7 @@
             const now = new Date().getTime();
             const difference = weddingDate - now;
             const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-            document.getElementById("countdown").innerHTML = `Countdown: ${days} days to go!`;
+            document.getElementById("countdown").innerHTML = `**العد التنازلي بدأ! فقط ${days} يوم حتى اللقاء المنتظر!**`;
         }
         setInterval(updateCountdown, 1000);
         updateCountdown();
