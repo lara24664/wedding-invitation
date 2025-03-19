@@ -186,52 +186,42 @@
             line-height: 1;
         }	
 @media (max-width: 768px) {
-            .card {
-                display: flex;
-                flex-direction: row-reverse;
-                width: 200vw;
-                height: 100vh;
-                overflow-x: auto;
-                scroll-snap-type: x mandatory;
-                -webkit-overflow-scrolling: touch;
-            }
+    .card {
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        overflow-x: hidden;
+    }
 
-            .right, .left {
-                width: 100vw;
-                height: 100vh;
-                flex-shrink: 0;
-                scroll-snap-align: start;
-            }
+    .right, .left {
+        width: 100%;
+        height: auto;
+        flex-shrink: 0;
+        scroll-snap-align: start;
+    }
 
-            .right img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
+    .right img {
+        width: 100%;
+        height: auto; /* Allows it to resize naturally */
+        object-fit: cover;
+    }
 
-            .left {
-                text-align: center;
-                padding: 20px;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-            }
+    .left {
+        padding: 20px;
+        text-align: center;
+    }
 
-            .location-link {
-                font-size: 14px;
-                padding: 6px 10px;
-            }
+    .location-link,
+    .countdown {
+        font-size: 14px;
+        padding: 8px;
+    }
 
-            .countdown {
-                font-size: 14px;
-                padding: 8px;
-            }
-
-            .form-container {
-                width: 90%;
-            }
-        }		
+    .form-container {
+        width: 90%;
+    }
+}
+		
     </style>
 </head>
 <body>
