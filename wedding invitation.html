@@ -186,50 +186,58 @@
             line-height: 1;
         }	
 @media (max-width: 768px) {
-    .card {
-        flex-direction: column;
-        width: 100%;
-        height: auto;
-        overflow-x: hidden;
-    }
+            .card {
+                display: flex;
+                flex-direction: row-reverse;
+                width: 200vw;
+                height: 100vh;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+            }
 
-    .right, .left {
-        width: 100%;
-        height: auto;
-        flex-shrink: 0;
-        scroll-snap-align: start;
-    }
+            .right, .left {
+                width: 100vw;
+                height: 100vh;
+                flex-shrink: 0;
+                scroll-snap-align: start;
+            }
 
-    .right img {
-        width: 100%;
-        height: auto; /* Allows it to resize naturally */
-        object-fit: cover;
-    }
+            .right img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
 
-    .left {
-        padding: 20px;
-        text-align: center;
-    }
+            .left {
+                text-align: center;
+                padding: 20px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
 
-    .location-link,
-    .countdown {
-        font-size: 14px;
-        padding: 8px;
-    }
+            .location-link {
+                font-size: 14px;
+                padding: 6px 10px;
+            }
 
-    .form-container {
-        width: 90%;
-    }
-}
+            .countdown {
+                font-size: 14px;
+                padding: 8px;
+            }
 
-
-		
+            .form-container {
+                width: 90%;
+            }
+        }		
     </style>
 </head>
 <body>
     <div class="card">
 	  <div class="right">
-            <img src="img/ali ghina.jpeg" alt="Wedding Couple">
+            <img src="ali ghina.jpeg" alt="Wedding Couple">
         </div>
         <div class="left">
 		 <img src="https://imgur.com/hwyD3it.png" alt="Flower Decoration" class="flower">
